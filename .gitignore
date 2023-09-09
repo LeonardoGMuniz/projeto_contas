@@ -1,0 +1,40 @@
+# Arquivos temporários e gerados
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+*.iml
+.idea/
+
+# Logs
+logs/
+*.log
+
+# Cache
+target/
+build/
+.gradle/
+out/
+
+# Arquivos de compilação
+*.class
+*.jar
+
+# Dependências
+.idea/
+*.iml
+*.ipr
+*.iws
+*.xml
+
+# Arquivos de configuração
+application.properties
+application.yml
+
+# Arquivos específicos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs de teste
+test-output/
+
+# Arquivos de configuração do Maven
+.mvn/wrapper/maven-wrapper.properties
