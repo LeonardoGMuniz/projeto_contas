@@ -5,9 +5,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import br.com.cotiinformatica.interceptors.AdminAccessInterceptor;
+import br.com.cotiinformatica.interceptors.CacheControlInterceptor;
 
 @Configuration
 @ComponentScan(basePackages="br.com.cotiinformatica")
@@ -27,5 +31,17 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 
+	/*
+	 * Método para registrar todos os interceptadores do projeto
+	 */
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		//adicionando os interceptadores
+		registry.addInterceptor(new AdminAccessInterceptor());
+		registry.addInterceptor(new CacheControlInterceptor());
+	}
 	
 }
+
+
+
