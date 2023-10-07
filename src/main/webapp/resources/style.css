@@ -1,8 +1,11 @@
-/* formatação para a mensagem de erro */
-label.error {
-	color: #d9534f;
-}
-/* formatação para o campo com erro */
-input.error {
-	border: 2px solid #d9534f;
-}
+	/* formatação para a mensagem de erro */
+	label.error {
+		color: #d9534f;
+	}
+	/* formatação para o campo com erro */
+	input.error, textarea.error, select.error {
+		border: 2px solid #d9534f;
+	}
+
+
+
