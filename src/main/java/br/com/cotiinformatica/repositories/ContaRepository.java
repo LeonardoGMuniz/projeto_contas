@@ -60,11 +60,11 @@ public class ContaRepository {
 		
 	}
 
-	public List<Conta> findBydatas(Date dataMin, Date dataMax, Integer idUsuario) throws Exception {
+	public List<Conta> findByDatas(Date dataMin, Date dataMax, Integer idUsuario) throws Exception {
 		// TODO
      Connection connection = ConnectionFactory.getConnetcion();
-      String query = "select * from conta"
-    		   + "where data between?  and ? and idusuario=?"
+      String query = "select * from conta "
+    		   + "where data between ?  and ? and idusuario=? "
     		   + " order by data desc";
       PreparedStatement statement= connection.prepareStatement(query);
       statement.setDate(1, new java.sql.Date(dataMin.getTime()));
@@ -83,7 +83,7 @@ public class ContaRepository {
     	  conta.setValor(resultSet.getDouble("valor"));
     	  conta.setTipo(resultSet.getInt("tipo"));
     	  conta.setDescricao(resultSet.getString("descricao"));
-    	  conta.setIdConta(resultSet.getInt("idusuario"));
+    	  conta.setIdUsuario(resultSet.getInt("idusuario"));
     	  
     	  lista.add(conta);
       }
@@ -111,14 +111,14 @@ public class ContaRepository {
 	    	  conta.setValor(resultSet.getDouble("valor"));
 	    	  conta.setTipo(resultSet.getInt("tipo"));
 	    	  conta.setDescricao(resultSet.getString("descricao"));
-	    	  conta.setIdConta(resultSet.getInt("idusuario"));
+	    	  conta.setIdUsuario(resultSet.getInt("idusuario"));
 	    	  
 		   
 	   }
 	    connection.close();
 		
 	
-		return null;
+		return conta;
 	}
 
 }
