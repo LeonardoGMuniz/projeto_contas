@@ -33,7 +33,7 @@ public class ContaRepository {
 
 	public void update(Conta conta) throws Exception {
 		Connection connection = ConnectionFactory.getConnetcion();
-		String query = "update conta set nome=?,date=?,valor=?,tipo?, descricao=? where idconta=?";
+		String query = "update conta set nome=?,data=?,valor=?,tipo=?, descricao=? where idconta=?";
 
 		PreparedStatement statement = connection.prepareStatement(query);
 		statement.setString(1, conta.getNome());
@@ -41,12 +41,14 @@ public class ContaRepository {
 		statement.setDouble(3, conta.getValor());
 		statement.setInt(4, conta.getTipo());
 		statement.setString(5, conta.getDescricao());
-		statement.setInt(6, conta.getIdUsuario());
+		statement.setInt(6, conta.getIdConta());
 		statement.execute();
 
 		connection.close();
-
+		
 	}
+	
+	
 
 	public void delete(Conta conta) throws Exception {
 		Connection connection = ConnectionFactory.getConnetcion();
